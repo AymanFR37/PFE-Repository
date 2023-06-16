@@ -1,19 +1,17 @@
 package ma.geo.gescolarite.entities;
 
+import ma.geo.gescolarite.Roles.Roles;
+
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
-public class StudentEntity extends PersonEntity{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private LocalDate dateOfBirth;
-    private String address;
+public class StudentEntity extends UserEntity{
 
-    //@ManyToOne : many students to one classe
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    private ClasseEntity classe;
+    private LocalDate dateOfBirth;
+
+
 
     //@ManyToOne : many students to one group
     @ManyToOne(cascade = CascadeType.PERSIST)
@@ -33,13 +31,6 @@ public class StudentEntity extends PersonEntity{
         this.groupName = groupName;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
@@ -49,13 +40,6 @@ public class StudentEntity extends PersonEntity{
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     public GroupeEntity getGroupe() {
         return groupe;
@@ -63,5 +47,15 @@ public class StudentEntity extends PersonEntity{
 
     public void setGroupe(GroupeEntity groupe) {
         this.groupe = groupe;
+    }
+
+    public StudentEntity(String email, String password, String address, String firstName, String lastName, String sexe, Set<Roles> roles, LocalDate dateOfBirth, GroupeEntity groupe, String groupName) {
+        super(email, password, address, firstName, lastName, sexe, roles);
+        this.dateOfBirth = dateOfBirth;
+        this.groupe = groupe;
+        this.groupName = groupName;
+    }
+
+    public StudentEntity() {
     }
 }

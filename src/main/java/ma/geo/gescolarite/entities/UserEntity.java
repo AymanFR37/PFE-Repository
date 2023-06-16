@@ -1,19 +1,74 @@
 package ma.geo.gescolarite.entities;
 
-import javax.persistence.Entity;
+import lombok.Builder;
+import ma.geo.gescolarite.Roles.Roles;
 
-//@Entity
-public class UserEntity extends PersonEntity{
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
+
+public class UserEntity {
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String email;
     private String password;
 
-    public UserEntity(String firstName, String lastName, String sexe, String email, String password) {
-        super(firstName, lastName, sexe);
+    private String address;
+    private String firstName;
+    private String lastName;
+    private String sexe;
+
+    @Enumerated(EnumType.STRING)
+    @ElementCollection(targetClass = Roles.class)
+    @Builder.Default
+    private Set<Roles> roles = new HashSet<>();
+
+    public UserEntity(String email, String password, String address, String firstName, String lastName, String sexe, Set<Roles> roles) {
         this.email = email;
         this.password = password;
+        this.address = address;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.sexe = sexe;
+        this.roles = roles;
     }
 
-    public UserEntity() {
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getSexe() {
+        return sexe;
+    }
+
+    public void setSexe(String sexe) {
+        this.sexe = sexe;
     }
 
     public String getEmail() {
@@ -30,6 +85,17 @@ public class UserEntity extends PersonEntity{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Set<Roles> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Roles> roles) {
+        this.roles = roles;
+    }
+
+    public UserEntity() {
     }
 
     @Override
