@@ -8,7 +8,9 @@ public class GroupeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nomGroupe;
-    @OneToMany
+
+    // @ManyToOne : many groups to one classe
+    @ManyToOne
     private ClasseEntity classe;
 
     public GroupeEntity(int id, String nomGroupe, ClasseEntity classe) {

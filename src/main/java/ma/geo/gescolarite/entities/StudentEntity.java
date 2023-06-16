@@ -10,18 +10,27 @@ public class StudentEntity extends PersonEntity{
     private int id;
     private LocalDate dateOfBirth;
     private String address;
-    @OneToMany
+
+    //@ManyToOne : many students to one classe
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private ClasseEntity classe;
 
-    public StudentEntity(String firstName, String lastName, String sexe, int id, LocalDate dateOfBirth, String address, ClasseEntity classe) {
-        super(firstName, lastName, sexe);
-        this.id = id;
-        this.dateOfBirth = dateOfBirth;
-        this.address = address;
-        this.classe = classe;
+    //@ManyToOne : many students to one group
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private GroupeEntity groupe;
+
+    @Transient
+    private String groupName;
+
+    public String getGroupName() {
+        if (groupe != null) {
+            return groupe.getNomGroupe();
+        }
+        return groupName;
     }
 
-    public StudentEntity() {
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
     }
 
     public int getId() {
@@ -48,21 +57,11 @@ public class StudentEntity extends PersonEntity{
         this.address = address;
     }
 
-    public ClasseEntity getClasse() {
-        return classe;
+    public GroupeEntity getGroupe() {
+        return groupe;
     }
 
-    public void setClasse(ClasseEntity classe) {
-        this.classe = classe;
-    }
-
-    @Override
-    public String toString() {
-        return "StudentEntity{" +
-                "id=" + id +
-                ", dateOfBirth=" + dateOfBirth +
-                ", address='" + address + '\'' +
-                ", classe=" + classe +
-                '}';
+    public void setGroupe(GroupeEntity groupe) {
+        this.groupe = groupe;
     }
 }

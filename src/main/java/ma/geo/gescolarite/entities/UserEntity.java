@@ -2,7 +2,7 @@ package ma.geo.gescolarite.entities;
 
 import javax.persistence.Entity;
 
-@Entity
+//@Entity
 public class UserEntity extends PersonEntity{
     private String email;
     private String password;
