@@ -7,15 +7,15 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.MappedSuperclass;
-
-@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 
 public class UserEntity {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String email;
     private String password;
 
@@ -26,7 +26,9 @@ public class UserEntity {
 
     @Enumerated(EnumType.STRING)
     @ElementCollection(targetClass = Roles.class)
-    @Builder.Default
+    @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "role")
+
     private Set<Roles> roles = new HashSet<>();
 
     public UserEntity(String email, String password, String address, String firstName, String lastName, String sexe, Set<Roles> roles) {

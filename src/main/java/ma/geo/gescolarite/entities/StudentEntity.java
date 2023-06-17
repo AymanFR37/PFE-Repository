@@ -12,8 +12,6 @@ public class StudentEntity extends UserEntity{
     private LocalDate dateOfBirth;
 
 
-
-    //@ManyToOne : many students to one group
     @ManyToOne(cascade = CascadeType.PERSIST)
     private GroupeEntity groupe;
 
