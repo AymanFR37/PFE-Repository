@@ -12,7 +12,6 @@ import java.util.Set;
 
 public class UserEntity {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
