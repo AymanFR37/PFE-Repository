@@ -2,6 +2,7 @@ package ma.geo.gescolarite.controllers;
 
 import ma.geo.gescolarite.entities.GroupeEntity;
 import ma.geo.gescolarite.services.GroupeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/groupes")
 public class GroupeController {
+    @Autowired
     private GroupeService groupeService;
 
     public GroupeController(GroupeService groupeService) {
