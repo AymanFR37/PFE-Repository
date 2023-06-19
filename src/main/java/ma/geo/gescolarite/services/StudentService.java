@@ -7,4 +7,6 @@ import java.util.List;
 public interface StudentService {
     StudentEntity addStudent(StudentEntity student);
     List<StudentEntity> getAll();
+    StudentEntity updateStudent(int id, StudentEntity student);
+    void deleteStudentById(int id);
 }

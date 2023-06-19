@@ -32,4 +32,20 @@ public class GroupeController {
         GroupeEntity aGroupe = groupeService.createGroupe(groupe);
         return new ResponseEntity<>(aGroupe, HttpStatus.CREATED);
     }
+
+    //Méthode pour modifier un groupe
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<GroupeEntity> update(@PathVariable int id,@RequestBody GroupeEntity groupe){
+        GroupeEntity updateGroupe = groupeService.updateGroupe(id, groupe);
+        return ResponseEntity.ok(updateGroupe);
+    }
+
+    //Méthode pour supprimer un groupe
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> delete(@PathVariable int id){
+        groupeService.deleteGroupeById(id);
+        return ResponseEntity.noContent().build();
+    }
 }

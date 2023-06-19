@@ -6,7 +6,7 @@ import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.util.Objects;
 
-//@Embeddable
+@Embeddable
 public class GradeId implements Serializable {
     @ManyToOne
     @JoinColumn(name = "student_id")

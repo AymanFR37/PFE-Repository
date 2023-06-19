@@ -21,4 +21,17 @@ public class GroupeServiceImpl implements GroupeService{
     public List<GroupeEntity> getAllGroupes() {
         return groupRepository.findAll();
     }
+
+    @Override
+    public GroupeEntity updateGroupe(int id, GroupeEntity groupe) {
+        GroupeEntity existGroupe = groupRepository.findById(id).orElse(null);
+        existGroupe.setNomGroupe(groupe.getNomGroupe());
+        existGroupe.setClasse(groupe.getClasse());
+        return groupRepository.save(existGroupe);
+    }
+
+    @Override
+    public void deleteGroupeById(int id) {
+        groupRepository.deleteById(id);
+    }
 }

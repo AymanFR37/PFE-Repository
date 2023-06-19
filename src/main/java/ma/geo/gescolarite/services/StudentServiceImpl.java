@@ -19,7 +19,7 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public StudentEntity addStudent(StudentEntity student) {
-        // Check if the groupId is provided in the request
+        /*// Check if the groupId is provided in the request
             Optional<GroupeEntity> optionalGroup = groupRepository.findById(student.getGroupe().getId());
             if (optionalGroup.isPresent()) {
                 GroupeEntity group = optionalGroup.get();
@@ -27,7 +27,7 @@ public class StudentServiceImpl implements StudentService{
             } else {
                 // Handle the case when the provided groupId does not exist
                 throw new IllegalArgumentException("Invalid groupId provided.");
-            }
+            }*/
 
         return studentRepository.save(student);
     }
@@ -35,11 +35,30 @@ public class StudentServiceImpl implements StudentService{
     @Override
     public List<StudentEntity> getAll() {
         List<StudentEntity> students = studentRepository.findAll();
-        for (StudentEntity student : students) {
+        /*for (StudentEntity student : students) {
             if (student.getGroupe() != null) {
                 student.setGroupName(student.getGroupe().getNomGroupe());
             }
-        }
+        }*/
         return students;
+    }
+
+    @Override
+    public StudentEntity updateStudent(int id, StudentEntity student) {
+        StudentEntity existStudent = studentRepository.findById(id).orElse(null);
+        existStudent.setFirstName(student.getFirstName());
+        existStudent.setLastName(student.getLastName());
+        existStudent.setDateOfBirth(student.getDateOfBirth());
+        existStudent.setAddress(student.getAddress());
+        existStudent.setSexe(student.getSexe());
+        existStudent.setGroupe(student.getGroupe());
+        existStudent.setRoles(student.getRoles());
+
+        return studentRepository.save(existStudent);
+    }
+
+    @Override
+    public void deleteStudentById(int id) {
+        studentRepository.deleteById(id);
     }
 }

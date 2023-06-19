@@ -30,4 +30,18 @@ public class ClasseController {
         ClasseEntity aClass = classService.createClass(classe);
         return new ResponseEntity<>(aClass, HttpStatus.CREATED);
     }
+
+    //Méthode pour modifier une classe
+    @PutMapping("/update/{id}")
+    public ResponseEntity<ClasseEntity> update(@PathVariable int id,@RequestBody ClasseEntity classe){
+        ClasseEntity updateClass = classService.updateClass(id, classe);
+        return ResponseEntity.ok(updateClass);
+    }
+
+    //Méthode pour supprimer une classe
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> delete(@PathVariable int id){
+        classService.deleteClassById(id);
+        return ResponseEntity.noContent().build();
+    }
 }

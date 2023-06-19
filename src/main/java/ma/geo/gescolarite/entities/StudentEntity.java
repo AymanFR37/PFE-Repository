@@ -1,6 +1,6 @@
 package ma.geo.gescolarite.entities;
 
-import ma.geo.gescolarite.Roles.Roles;
+import ma.geo.gescolarite.roles.Roles;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -15,7 +15,7 @@ public class StudentEntity extends UserEntity{
     @ManyToOne(cascade = CascadeType.PERSIST)
     private GroupeEntity groupe;
 
-    @Transient
+/*    @Transient
     private String groupName;
 
     public String getGroupName() {
@@ -27,7 +27,7 @@ public class StudentEntity extends UserEntity{
 
     public void setGroupName(String groupName) {
         this.groupName = groupName;
-    }
+    }*/
 
 
     public LocalDate getDateOfBirth() {
@@ -47,13 +47,22 @@ public class StudentEntity extends UserEntity{
         this.groupe = groupe;
     }
 
-    public StudentEntity(String email, String password, String address, String firstName, String lastName, String sexe, Set<Roles> roles, LocalDate dateOfBirth, GroupeEntity groupe, String groupName) {
+    public StudentEntity(String email, String password, String address, String firstName, String lastName, String sexe, Set<Roles> roles, LocalDate dateOfBirth, GroupeEntity groupe) {
         super(email, password, address, firstName, lastName, sexe, roles);
         this.dateOfBirth = dateOfBirth;
         this.groupe = groupe;
-        this.groupName = groupName;
     }
 
+
+
     public StudentEntity() {
+    }
+
+    @Override
+    public String toString() {
+        return "StudentEntity{" +
+                "dateOfBirth=" + dateOfBirth +
+                ", groupe=" + groupe +
+                '}';
     }
 }
