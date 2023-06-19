@@ -46,6 +46,10 @@ public class GroupeEntity {
         this.classe = classe;
     }
 
+    public GroupeEntity(int id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "GroupeEntity{" +

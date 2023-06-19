@@ -21,4 +21,17 @@ public class ClasseServiceImpl implements ClasseService{
     public List<ClasseEntity> getAllClasses() {
         return classRepository.findAll();
     }
+
+    @Override
+    public ClasseEntity updateClass(int id, ClasseEntity classe) {
+        ClasseEntity existClasse = classRepository.findById(id).orElse(null);
+        existClasse.setNomClass(classe.getNomClass());
+
+        return classRepository.save(existClasse);
+    }
+
+    @Override
+    public void deleteClassById(int id) {
+        classRepository.deleteById(id);
+    }
 }

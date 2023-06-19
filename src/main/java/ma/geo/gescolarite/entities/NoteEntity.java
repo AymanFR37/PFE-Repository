@@ -2,8 +2,8 @@ package ma.geo.gescolarite.entities;
 
 import javax.persistence.*;
 
-//@Entity
-//@Table(name = "grade")
+@Entity
+@Table(name = "grade")
 public class NoteEntity {
 
     @EmbeddedId

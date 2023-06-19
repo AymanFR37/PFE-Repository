@@ -1,9 +1,10 @@
 package ma.geo.gescolarite.entities;
 
+
+
 import ma.geo.gescolarite.Roles.Roles;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.util.Set;
 

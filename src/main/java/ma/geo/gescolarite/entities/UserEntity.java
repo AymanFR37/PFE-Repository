@@ -1,6 +1,7 @@
 package ma.geo.gescolarite.entities;
 
-import lombok.Builder;
+
+
 import ma.geo.gescolarite.Roles.Roles;
 
 import javax.persistence.*;
@@ -9,15 +10,12 @@ import java.util.Set;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-
 public class UserEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String email;
     private String password;
-
     private String address;
     private String firstName;
     private String lastName;
@@ -29,6 +27,14 @@ public class UserEntity {
     @Column(name = "role")
 
     private Set<Roles> roles = new HashSet<>();
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public UserEntity(String email, String password, String address, String firstName, String lastName, String sexe, Set<Roles> roles) {
         this.email = email;

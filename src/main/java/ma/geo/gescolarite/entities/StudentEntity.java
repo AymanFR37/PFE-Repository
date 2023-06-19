@@ -7,28 +7,12 @@ import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
-public class StudentEntity extends UserEntity{
+public class StudentEntity extends UserEntity {
 
     private LocalDate dateOfBirth;
 
-
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     private GroupeEntity groupe;
-
-    @Transient
-    private String groupName;
-
-    public String getGroupName() {
-        if (groupe != null) {
-            return groupe.getNomGroupe();
-        }
-        return groupName;
-    }
-
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
-    }
-
 
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
@@ -47,13 +31,21 @@ public class StudentEntity extends UserEntity{
         this.groupe = groupe;
     }
 
-    public StudentEntity(String email, String password, String address, String firstName, String lastName, String sexe, Set<Roles> roles, LocalDate dateOfBirth, GroupeEntity groupe, String groupName) {
+    public StudentEntity(String email, String password, String address, String firstName, String lastName, String sexe, Set<Roles> roles, LocalDate dateOfBirth, GroupeEntity groupe) {
         super(email, password, address, firstName, lastName, sexe, roles);
         this.dateOfBirth = dateOfBirth;
         this.groupe = groupe;
-        this.groupName = groupName;
     }
 
+
     public StudentEntity() {
+    }
+
+    @Override
+    public String toString() {
+        return "StudentEntity{" +
+                "dateOfBirth=" + dateOfBirth +
+                ", groupe=" + groupe +
+                '}';
     }
 }
