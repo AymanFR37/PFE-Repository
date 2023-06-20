@@ -12,6 +12,9 @@ public class GroupDto {
 
     }
 
+    public GroupDto() {
+    }
+
     public int getId() {
         return id;
     }
@@ -26,5 +29,13 @@ public class GroupDto {
 
     public void setNomGroupe(String nomGroupe) {
         this.nomGroupe = nomGroupe;
+    }
+
+    @Override
+    public String toString() {
+        return "GroupDto{" +
+                "id=" + id +
+                ", nomGroupe='" + nomGroupe + '\'' +
+                '}';
     }
 }

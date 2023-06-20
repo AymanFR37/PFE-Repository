@@ -1,6 +1,6 @@
 package ma.geo.gescolarite.controllers;
 
-import ma.geo.gescolarite.entities.GroupeEntity;
+import ma.geo.gescolarite.dtos.GroupDto;
 import ma.geo.gescolarite.services.GroupeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,24 +22,24 @@ public class GroupeController {
     //Méthode pour Sélectionner toutes les groupes disponibles
 
     @GetMapping
-    public ResponseEntity<List<GroupeEntity>> getAll(){
-        List<GroupeEntity> allGroupes = groupeService.getAllGroupes();
+    public ResponseEntity<List<GroupDto>> getAll(){
+        List<GroupDto> allGroupes = groupeService.getAllGroupes();
         return  ResponseEntity.ok(allGroupes);
     }
 
     //Méthode pour ajouter un groupe
 
     @PostMapping("/add")
-    public ResponseEntity<GroupeEntity> add(@RequestBody GroupeEntity groupe){
-        GroupeEntity aGroupe = groupeService.createGroupe(groupe);
+    public ResponseEntity<GroupDto> add(@RequestBody GroupDto groupe){
+        GroupDto aGroupe = groupeService.createGroupe(groupe);
         return new ResponseEntity<>(aGroupe, HttpStatus.CREATED);
     }
 
     //Méthode pour modifier un groupe
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<GroupeEntity> update(@PathVariable int id,@RequestBody GroupeEntity groupe){
-        GroupeEntity updateGroupe = groupeService.updateGroupe(id, groupe);
+    public ResponseEntity<GroupDto> update(@PathVariable int id,@RequestBody GroupDto groupe){
+        GroupDto updateGroupe = groupeService.updateGroupe(id, groupe);
         return ResponseEntity.ok(updateGroupe);
     }
 

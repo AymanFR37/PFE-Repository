@@ -1,7 +1,6 @@
 package ma.geo.gescolarite.controllers;
 
 import ma.geo.gescolarite.dtos.StudentDto;
-import ma.geo.gescolarite.entities.StudentEntity;
 import ma.geo.gescolarite.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +17,7 @@ public class StudentController {
 
     // Méthode pour selectionner tous les étudiants
     @GetMapping
-    public List<StudentEntity> getAllStudents() {
+    public List<StudentDto> getAllStudents() {
         return studentService.getAll();
     }
 
@@ -31,8 +30,8 @@ public class StudentController {
 
     // Méthode pour modifier un étudiant
     @PutMapping("/{id}")
-    public ResponseEntity<StudentEntity> updateStudent(@PathVariable int id, @RequestBody StudentEntity studentEntity) {
-        StudentEntity updatedStudent = studentService.updateStudent(id, studentEntity);
+    public ResponseEntity<StudentDto> updateStudent(@PathVariable int id, @RequestBody StudentDto studentDto) {
+        StudentDto updatedStudent = studentService.updateStudent(id, studentDto);
         return ResponseEntity.ok(updatedStudent);
     }
 

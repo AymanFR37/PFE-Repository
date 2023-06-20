@@ -1,7 +1,7 @@
 package ma.geo.gescolarite.controllers;
 
 
-import ma.geo.gescolarite.entities.ClasseEntity;
+import ma.geo.gescolarite.dtos.ClasseDto;
 import ma.geo.gescolarite.services.ClasseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,22 +19,22 @@ public class ClasseController {
 
     //Méthode pour Sélectionner toutes les classes disponibles
     @GetMapping
-    public ResponseEntity<List<ClasseEntity>> getAll(){
-        List<ClasseEntity> allClasses = classService.getAllClasses();
+    public ResponseEntity<List<ClasseDto>> getAll(){
+        List<ClasseDto> allClasses = classService.getAllClasses();
         return  ResponseEntity.ok(allClasses);
     }
 
     //Méthode pour ajouter une classe
     @PostMapping("/add")
-    public ResponseEntity<ClasseEntity> add(@RequestBody ClasseEntity classe){
-        ClasseEntity aClass = classService.createClass(classe);
+    public ResponseEntity<ClasseDto> add(@RequestBody ClasseDto classe){
+        ClasseDto aClass = classService.createClass(classe);
         return new ResponseEntity<>(aClass, HttpStatus.CREATED);
     }
 
     //Méthode pour modifier une classe
     @PutMapping("/update/{id}")
-    public ResponseEntity<ClasseEntity> update(@PathVariable int id,@RequestBody ClasseEntity classe){
-        ClasseEntity updateClass = classService.updateClass(id, classe);
+    public ResponseEntity<ClasseDto> update(@PathVariable int id,@RequestBody ClasseDto classe){
+        ClasseDto updateClass = classService.updateClass(id, classe);
         return ResponseEntity.ok(updateClass);
     }
 

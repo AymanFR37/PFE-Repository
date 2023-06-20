@@ -1,7 +1,5 @@
 package ma.geo.gescolarite.entities;
 
-
-
 import ma.geo.gescolarite.Roles.Roles;
 
 import javax.persistence.Entity;
@@ -12,13 +10,26 @@ import java.util.Set;
 
 public class TeacherEntity extends UserEntity{
 
-
-
     @ManyToOne
     private MatiereEntity matiere;
 
     public TeacherEntity(String email, String password, String address, String firstName, String lastName, String sexe, Set<Roles> roles, MatiereEntity matiere) {
         super(email, password, address, firstName, lastName, sexe, roles);
         this.matiere = matiere;
+    }
+
+    public MatiereEntity getMatiere() {
+        return matiere;
+    }
+
+    public void setMatiere(MatiereEntity matiere) {
+        this.matiere = matiere;
+    }
+
+    @Override
+    public String toString() {
+        return "TeacherEntity{" +
+                "matiere=" + matiere +
+                '}';
     }
 }
