@@ -3,7 +3,6 @@ package ma.geo.gescolarite.controllers;
 
 import ma.geo.gescolarite.dtos.ClasseDto;
 import ma.geo.gescolarite.services.ClasseService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +13,11 @@ import java.util.List;
 @RequestMapping("/api/v1/classes")
 public class ClasseController {
 
-    @Autowired
     private ClasseService classService;
+
+    public ClasseController(ClasseService classService) {
+        this.classService = classService;
+    }
 
     //Méthode pour Sélectionner toutes les classes disponibles
     @GetMapping

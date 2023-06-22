@@ -1,31 +1,19 @@
 package ma.geo.gescolarite.dtos;
 
-import ma.geo.gescolarite.Roles.Roles;
-import ma.geo.gescolarite.entities.GroupeEntity;
 
-import javax.persistence.ManyToOne;
 import java.time.LocalDate;
-import java.util.Set;
 
 public class StudentDto {
 
     private int id;
-    private String email;
-    private String password;
-    private String address;
     private String firstName;
     private String lastName;
-    private String sexe;
-    private GroupDto groupe;
+    private String address;
     private LocalDate dateOfBirth;
+    private String sexe;
+    private ClasseDto classe;
+    private GroupDto groupe;
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public int getId() {
         return id;
@@ -33,14 +21,6 @@ public class StudentDto {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getAddress() {
@@ -96,14 +76,36 @@ public class StudentDto {
     public StudentDto() {
     }
 
-    public StudentDto(String email, String password, String address, String firstName, String lastName, String sexe, LocalDate dateOfBirth, GroupDto groupe) {
-        this.email = email;
-        this.password = password;
-        this.address = address;
+    public StudentDto(int id, String firstName, String lastName, String address, LocalDate dateOfBirth, String sexe, ClasseDto classe, GroupDto groupe) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.sexe = sexe;
+        this.address = address;
         this.dateOfBirth = dateOfBirth;
+        this.sexe = sexe;
+        this.classe = classe;
         this.groupe = groupe;
+    }
+
+    public ClasseDto getClasse() {
+        return classe;
+    }
+
+    public void setClasse(ClasseDto classe) {
+        this.classe = classe;
+    }
+
+    @Override
+    public String toString() {
+        return "StudentDto{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", sexe='" + sexe + '\'' +
+                ", classe=" + classe +
+                ", groupe=" + groupe +
+                '}';
     }
 }

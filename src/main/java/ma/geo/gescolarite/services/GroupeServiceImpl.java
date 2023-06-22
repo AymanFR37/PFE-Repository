@@ -1,6 +1,7 @@
 package ma.geo.gescolarite.services;
 
 import ma.geo.gescolarite.dtos.GroupDto;
+import ma.geo.gescolarite.dtos.GroupeClassDto;
 import ma.geo.gescolarite.mappers.GroupeMapper;
 import ma.geo.gescolarite.repositories.GroupRepository;
 import org.mapstruct.factory.Mappers;
@@ -17,8 +18,8 @@ public class GroupeServiceImpl implements GroupeService{
     private GroupeMapper groupeMapper = Mappers.getMapper(GroupeMapper.class);
 
     @Override
-    public GroupDto createGroupe(GroupDto groupDto) {
-        GroupDto dto = groupeMapper.groupeToGroupeDto(groupRepository.save(groupeMapper.groupeDtoToGroupe(groupDto)));
+    public GroupeClassDto createGroupe(GroupeClassDto groupeClassDto) {
+        GroupeClassDto dto = groupeMapper.groupeToGroupeClassDto(groupRepository.save(groupeMapper.groupeClassDtoToGroupe(groupeClassDto)));
         return dto;
     }
 

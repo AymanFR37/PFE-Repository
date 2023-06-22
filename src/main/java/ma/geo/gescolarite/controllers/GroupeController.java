@@ -1,6 +1,7 @@
 package ma.geo.gescolarite.controllers;
 
 import ma.geo.gescolarite.dtos.GroupDto;
+import ma.geo.gescolarite.dtos.GroupeClassDto;
 import ma.geo.gescolarite.services.GroupeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,8 +31,8 @@ public class GroupeController {
     //Méthode pour ajouter un groupe
 
     @PostMapping("/add")
-    public ResponseEntity<GroupDto> add(@RequestBody GroupDto groupe){
-        GroupDto aGroupe = groupeService.createGroupe(groupe);
+    public ResponseEntity<GroupeClassDto> add(@RequestBody GroupeClassDto groupe){
+        GroupeClassDto aGroupe = groupeService.createGroupe(groupe);
         return new ResponseEntity<>(aGroupe, HttpStatus.CREATED);
     }
 

@@ -1,6 +1,7 @@
 package ma.geo.gescolarite.entities;
 
-import ma.geo.gescolarite.Roles.Roles;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import ma.geo.gescolarite.roles.Roles;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -36,7 +37,6 @@ public class StudentEntity extends UserEntity {
         this.dateOfBirth = dateOfBirth;
         this.groupe = groupe;
     }
-
 
     public StudentEntity() {
     }

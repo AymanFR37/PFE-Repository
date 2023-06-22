@@ -1,5 +1,5 @@
 
-package ma.geo.gescolarite.Roles;
+package ma.geo.gescolarite.roles;
 
 
 

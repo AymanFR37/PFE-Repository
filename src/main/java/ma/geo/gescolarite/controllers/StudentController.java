@@ -1,5 +1,6 @@
 package ma.geo.gescolarite.controllers;
 
+import ma.geo.gescolarite.dtos.StudentAddDto;
 import ma.geo.gescolarite.dtos.StudentDto;
 import ma.geo.gescolarite.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,8 @@ public class StudentController {
 
     // Méthode pour ajouter un étudiant
     @PostMapping("/add")
-    public ResponseEntity<StudentDto> saveStudent(@RequestBody StudentDto student) {
-        StudentDto savedStudent = studentService.addStudent(student);
+    public ResponseEntity<StudentAddDto> saveStudent(@RequestBody StudentAddDto student) {
+        StudentAddDto savedStudent = studentService.addStudent(student);
         return   ResponseEntity.ok(savedStudent);
     }
 

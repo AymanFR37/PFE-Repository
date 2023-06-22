@@ -2,6 +2,7 @@ D:\JAVA CIGMA\gescolarite\src\main\java\ma\geo\gescolarite\repositories\TeacherR
 D:\JAVA CIGMA\gescolarite\src\main\java\ma\geo\gescolarite\repositories\SalleRepository.java
 D:\JAVA CIGMA\gescolarite\src\main\java\ma\geo\gescolarite\services\UserService.java
 D:\JAVA CIGMA\gescolarite\src\main\java\ma\geo\gescolarite\mappers\CoursMapper.java
+D:\JAVA CIGMA\gescolarite\src\main\java\ma\geo\gescolarite\dtos\GroupeClassDto.java
 D:\JAVA CIGMA\gescolarite\src\main\java\ma\geo\gescolarite\entities\GroupeEntity.java
 D:\JAVA CIGMA\gescolarite\src\main\java\ma\geo\gescolarite\controllers\TeacherController.java
 D:\JAVA CIGMA\gescolarite\src\main\java\ma\geo\gescolarite\services\SalleService.java
@@ -16,6 +17,7 @@ D:\JAVA CIGMA\gescolarite\src\main\java\ma\geo\gescolarite\entities\TeacherEntit
 D:\JAVA CIGMA\gescolarite\src\main\java\ma\geo\gescolarite\entities\StudentEntity.java
 D:\JAVA CIGMA\gescolarite\src\main\java\ma\geo\gescolarite\mappers\NoteMapper.java
 D:\JAVA CIGMA\gescolarite\src\main\java\ma\geo\gescolarite\mappers\GroupeMapper.java
+D:\JAVA CIGMA\gescolarite\src\main\java\ma\geo\gescolarite\dtos\StudentAddDto.java
 D:\JAVA CIGMA\gescolarite\src\main\java\ma\geo\gescolarite\repositories\UserRepository.java
 D:\JAVA CIGMA\gescolarite\src\main\java\ma\geo\gescolarite\mappers\StudentMapper.java
 D:\JAVA CIGMA\gescolarite\src\main\java\ma\geo\gescolarite\dtos\ClasseDto.java
