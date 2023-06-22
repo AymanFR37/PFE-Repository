@@ -1,6 +1,9 @@
 package ma.geo.gescolarite.dtos;
 
+import ma.geo.gescolarite.roles.Roles;
+
 import java.time.LocalDate;
+import java.util.Set;
 
 public class StudentAddDto {
     private String firstName;
@@ -9,14 +12,25 @@ public class StudentAddDto {
     private String address;
     private String sexe;
     private GroupDto groupe;
+    private Set<Roles> roles;
 
-    public StudentAddDto(String firstName, String lastName, LocalDate dateOfBirth, String address, String sexe, GroupDto groupe) {
+
+    public Set<Roles> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Roles> roles) {
+        this.roles = roles;
+    }
+
+    public StudentAddDto(String firstName, String lastName, LocalDate dateOfBirth, String address, String sexe, GroupDto groupe, Set<Roles> roles) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
         this.address = address;
         this.sexe = sexe;
         this.groupe = groupe;
+        this.roles = roles;
     }
 
     public StudentAddDto() {

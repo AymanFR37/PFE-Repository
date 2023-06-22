@@ -18,6 +18,9 @@ public class TeacherEntity extends UserEntity{
         this.matiere = matiere;
     }
 
+    public TeacherEntity() {
+    }
+
     public MatiereEntity getMatiere() {
         return matiere;
     }

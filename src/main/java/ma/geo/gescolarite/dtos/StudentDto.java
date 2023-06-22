@@ -11,7 +11,6 @@ public class StudentDto {
     private String address;
     private LocalDate dateOfBirth;
     private String sexe;
-    private ClasseDto classe;
     private GroupDto groupe;
 
 
@@ -76,24 +75,16 @@ public class StudentDto {
     public StudentDto() {
     }
 
-    public StudentDto(int id, String firstName, String lastName, String address, LocalDate dateOfBirth, String sexe, ClasseDto classe, GroupDto groupe) {
+    public StudentDto(int id, String firstName, String lastName, String address, LocalDate dateOfBirth, String sexe, GroupDto groupe) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.dateOfBirth = dateOfBirth;
         this.sexe = sexe;
-        this.classe = classe;
         this.groupe = groupe;
     }
 
-    public ClasseDto getClasse() {
-        return classe;
-    }
-
-    public void setClasse(ClasseDto classe) {
-        this.classe = classe;
-    }
 
     @Override
     public String toString() {
@@ -104,7 +95,6 @@ public class StudentDto {
                 ", address='" + address + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", sexe='" + sexe + '\'' +
-                ", classe=" + classe +
                 ", groupe=" + groupe +
                 '}';
     }
