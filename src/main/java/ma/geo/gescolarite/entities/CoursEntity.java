@@ -10,8 +10,8 @@ public class CoursEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private LocalDate date;
-    private LocalTime heureDebut;
-    private LocalTime heureFin;
+    private String heureDebut;
+    private String heureFin;
     @ManyToOne
     private TeacherEntity teacher;
     @ManyToOne
@@ -20,6 +20,16 @@ public class CoursEntity {
     private SalleEntity salle;
 
     public CoursEntity() {
+    }
+
+    public CoursEntity(int id, LocalDate date, String heureDebut, String heureFin, TeacherEntity teacher, GroupeEntity groupe, SalleEntity salle) {
+        this.id = id;
+        this.date = date;
+        this.heureDebut = heureDebut;
+        this.heureFin = heureFin;
+        this.teacher = teacher;
+        this.groupe = groupe;
+        this.salle = salle;
     }
 
     public GroupeEntity getGroupe() {
@@ -46,19 +56,19 @@ public class CoursEntity {
         this.date = date;
     }
 
-    public LocalTime getHeureDebut() {
+    public String getHeureDebut() {
         return heureDebut;
     }
 
-    public void setHeureDebut(LocalTime heureDebut) {
+    public void setHeureDebut(String heureDebut) {
         this.heureDebut = heureDebut;
     }
 
-    public LocalTime getHeureFin() {
+    public String getHeureFin() {
         return heureFin;
     }
 
-    public void setHeureFin(LocalTime heureFin) {
+    public void setHeureFin(String heureFin) {
         this.heureFin = heureFin;
     }
 

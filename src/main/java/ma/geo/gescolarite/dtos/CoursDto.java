@@ -6,13 +6,13 @@ import java.time.LocalTime;
 public class CoursDto {
     private int id;
     private LocalDate date;
-    private LocalTime heureDebut;
-    private LocalTime heureFin;
+    private String heureDebut;
+    private String heureFin;
     private TeacherDto teacher;
     private GroupDto groupe;
     private SalleDto salle;
 
-    public CoursDto(int id, LocalDate date, LocalTime heureDebut, LocalTime heureFin, TeacherDto teacher, GroupDto groupe, SalleDto salle) {
+    public CoursDto(int id, LocalDate date, String heureDebut, String heureFin, TeacherDto teacher, GroupDto groupe, SalleDto salle) {
         this.id = id;
         this.date = date;
         this.heureDebut = heureDebut;
@@ -41,19 +41,19 @@ public class CoursDto {
         this.date = date;
     }
 
-    public LocalTime getHeureDebut() {
+    public String getHeureDebut() {
         return heureDebut;
     }
 
-    public void setHeureDebut(LocalTime heureDebut) {
+    public void setHeureDebut(String heureDebut) {
         this.heureDebut = heureDebut;
     }
 
-    public LocalTime getHeureFin() {
+    public String getHeureFin() {
         return heureFin;
     }
 
-    public void setHeureFin(LocalTime heureFin) {
+    public void setHeureFin(String heureFin) {
         this.heureFin = heureFin;
     }
 

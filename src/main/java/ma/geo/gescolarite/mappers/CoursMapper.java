@@ -11,5 +11,5 @@ public interface CoursMapper {
     CoursEntity coursDtoToCours(CoursDto coursDto);
     CoursDto coursToCoursDto(CoursEntity coursEntity);
     List<CoursEntity> coursDtosToCourses(List<CoursDto> coursDtos);
-    List<CoursDto> CoursesToClassesDtos(List<CoursEntity> coursEntities);
+    List<CoursDto> CoursesToCoursesDtos(List<CoursEntity> coursEntities);
 }
